@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Catcher>
+   <Config>
+      <IpServer>127.0.0.1</IpServer>
+      <SqlServerName>localhost</SqlServerName>
+      <DataBase>gps</DataBase>
+      <PasswordDB>s512345</PasswordDB>
+      <UserDB>s5</UserDB>
+      <LiveDataBase>gps</LiveDataBase>
+      <LivePasswordDB>s512345</LivePasswordDB>
+      <LiveUserDB>s5</LiveUserDB>
+      <DevMode>true</DevMode>
+	  <PortListener>11500</PortListener>
+      <PortHttp>9090</PortHttp>
+      <Company>---</Company>
+      <TimeZoneHourId>0</TimeZoneHourId>
+      <CompileType/>
+      <ServiceNameCatcher>GTL</ServiceNameCatcher>
+       <solr>http://51.79.82.209:3019/solr/itrack/</solr>
+   </Config>
+</Catcher>
