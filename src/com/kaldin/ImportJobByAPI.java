@@ -68,9 +68,9 @@ public class ImportJobByAPI implements Job {
 			df1 = df1.withResolverStyle(org.threeten.bp.format.ResolverStyle.SMART);
 			defaultApiCleint.setOffsetDateTimeFormat(df1);
 			defaultApiCleint.setLocalDateFormat(df1);
-			defaultApiCleint.setConnectTimeout(ProcessMain.TIMEOUT_IN_SEC*1000);
-			defaultApiCleint.setReadTimeout(ProcessMain.TIMEOUT_IN_SEC*1000);
-			defaultApiCleint.setWriteTimeout(ProcessMain.TIMEOUT_IN_SEC*1000);
+//			defaultApiCleint.setConnectTimeout(ProcessMain.TIMEOUT_IN_SEC*1000);
+//			defaultApiCleint.setReadTimeout(ProcessMain.TIMEOUT_IN_SEC*1000);
+//			defaultApiCleint.setWriteTimeout(ProcessMain.TIMEOUT_IN_SEC*1000);
 			int iUserCount = 0;
 			do {
 				UserDTO userDTO = userList.get(iUserCount);
@@ -547,25 +547,25 @@ public class ImportJobByAPI implements Job {
 	    if(getNewTokan) {
 			OkHttpClient httpClient = new OkHttpClient();
 			String input = "grant_type=password&username="+ user.getUserName() +"&password="+ user.getPassword();
-			RequestBody body = RequestBody.create(ProcessMain.JSON, input);
-			Request request = new Request.Builder().url(user.getUrl() + "/token").post(body).build();
+//			RequestBody body = RequestBody.create(ProcessMain.JSON, input);
+//			Request request = new Request.Builder().url(user.getUrl() + "/token").post(body).build();
 			Response response1;
 			try {
-				response1 = httpClient.newCall(request).execute();
-				ResponseBody body2 = response1.body();
-				String resp = body2.string();
-			    JSONObject obj = new JSONObject(resp);
-			    if(obj.has("access_token")) {
-			    	this.process_tokan = obj.getString("access_token");
-			    	this.expiresin = obj.getInt("expires_in");
-			    	this.defaultApiCleint.addDefaultHeader("Authorization", "Bearer "+this.process_tokan);
-			    	System.out.println(user.getProvider() + " Login");
-			    } else {
-			    	System.out.println(obj.toString());
-			    	getNewTokan = false;
-			    	this.dao.logProcess(0, false, "Login failed", user.getId(),OPERATION.LOGIN.getValue());
-			    }
-			    body2.close();
+//				response1 = httpClient.newCall(request).execute();
+//				ResponseBody body2 = response1.body();
+//				String resp = body2.string();
+//			    JSONObject obj = new JSONObject(resp);
+//			    if(obj.has("access_token")) {
+//			    	this.process_tokan = obj.getString("access_token");
+//			    	this.expiresin = obj.getInt("expires_in");
+//			    	this.defaultApiCleint.addDefaultHeader("Authorization", "Bearer "+this.process_tokan);
+//			    	System.out.println(user.getProvider() + " Login");
+//			    } else {
+//			    	System.out.println(obj.toString());
+//			    	getNewTokan = false;
+//			    	this.dao.logProcess(0, false, "Login failed", user.getId(),OPERATION.LOGIN.getValue());
+//			    }
+//			    body2.close();
 			} catch (Exception e1) {
 				e1.printStackTrace();
 				getNewTokan = false;
